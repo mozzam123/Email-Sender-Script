@@ -5,16 +5,17 @@ from email.mime.application import MIMEApplication
 
 def send_email():
     # Your email credentials
-    sender_email = 'mozzam607@gmail.com'
-    sender_password = 'ckcy adna arxr glbm'
+    sender_email = 'Enter your mail'
+    sender_password = 'Enter your password'
 
     # Recipient email and email details
-    to_email = 'careers@coverstack.in'
-    subject = 'Django/Nodejs Developer'
-    body = 'I have 2 years of hands-on experience in Python and Node.js development, particularly in crafting microservices architectures. Additionally, I hold certifications in AWS Cloud Practitioner and Azure AZ-900, showcasing my understanding of cloud technologies and their operational principles.\n\n Below is my resume for your reference.'
+    to_email = 'Email to whom you want to send'
+    subject = 'Subject of the mail'
+    body = 'Body message of the mail'
 
-    # Resume attachment
-    resume_path = f"Mozzam's Resume.pdf"
+    # file attachment
+    file_path = 'path/to/your/file'
+
 
     # Create the email message
     message = MIMEMultipart()
@@ -26,7 +27,7 @@ def send_email():
     message.attach(MIMEText(body, 'plain'))
 
     # Attach the resume
-    with open(resume_path, 'rb') as resume_file:
+    with open(file_path, 'rb') as resume_file:
         resume_attachment = MIMEApplication(resume_file.read(), Name='resume.pdf')
 
     resume_attachment['Content-Disposition'] = f'attachment; filename=resume.pdf'
